@@ -1,0 +1,19 @@
+{
+  "name": "unearthed-project1",
+  "version": "1.0.0",
+  "description": "A listicle web app that displays unique gift ideas.",
+  "main": "server/server.js",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon server/server.js"
+  },
+  "keywords": [],
+  "author": "Oscar Mochizaki",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}
