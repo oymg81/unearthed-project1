@@ -1,71 +1,52 @@
-# WEB103 Project 2 - Unearthed Gift Ideas (Listicle Part 2)
+# WEB103 Project 2 - Unearthed Gift Ideas
 
 Submitted by: Oscar Mochizaki
 
-About this web app: **Unearthed Gift Ideas is a list-based web app that displays unique and thoughtful gift ideas. In this version, the listicle data comes dynamically from a Render PostgreSQL database instead of being hardcoded in the frontend. The frontend is built using only HTML, CSS, and vanilla JavaScript (no frameworks).**
+About this web app: **Unearthed Gift Ideas is a listicle web app that displays unique gift ideas by category, price, image, and description. The app was refactored from hardcoded frontend data to retrieve its list items from a Render PostgreSQL database through an Express API endpoint.**
 
-Time spent: 4 hours
+Time spent: 6 hours
 
 ## Required Features
 
 The following **required** functionality is completed:
 
-- [x] The frontend uses only HTML, CSS, and vanilla JavaScript (no frameworks like React, Vue, Angular, or Next.js)
-- [x] The web app is connected to a Render PostgreSQL database (`web103-lab1-db` using a new table `project2_items`)
-- [x] The database contains an appropriately structured table for the list items
-- [x] The frontend displays data retrieved from the PostgreSQL database
-- [x] The backend exposes an API endpoint `/api/items` serving JSON data from the database
+* [x] **The web app uses only HTML, CSS, and JavaScript without a frontend framework**
+* [x] **The web app is connected to a PostgreSQL database, with an appropriately structured database table for the list items**
 
-## Tech Stack
+  * [x] **NOTE: Your walkthrough added to the README must include a view of your Render dashboard demonstrating that your Postgres database is available**
+  * [x] **NOTE: Your walkthrough added to the README must include a demonstration of your table contents. Use the psql command `SELECT * FROM project2_items;` to display your table contents.**
 
-- HTML
-- CSS
-- Vanilla JavaScript
-- Node.js
-- Express.js
-- PostgreSQL
-- Render PostgreSQL
+The following **optional** features are implemented:
 
-## API Endpoints
+* [ ] The user can search for items by a specific attribute
 
-- `GET /api/items`: Retrieves all gift items from the PostgreSQL database, sorted by ID in ascending order.
+The following **additional** features are implemented:
 
-## Environment Variables
-
-Create a `.env` file in the root of the project with the following configuration:
-
-```env
-DATABASE_URL=your_render_postgresql_external_database_url
-PORT=3000
-```
-
-*Note: Make sure `.env` is listed in your `.gitignore` to avoid committing secret credentials to GitHub.*
-
-## Database Setup
-
-To set up the database table and seed data in your Render PostgreSQL database:
-
-1. Connect to your database client.
-2. Run the SQL schema commands from `server/schema.sql` to create the `project2_items` table.
-3. Run the SQL seeding commands from `server/seed.sql` to populate the initial list items.
-
-## Local Setup
-
-1. Clone the repository.
-2. Run `npm install`.
-3. Create a `.env` file.
-4. Add your Render PostgreSQL `DATABASE_URL`.
-5. Run the schema SQL.
-6. Run the seed SQL.
-7. Start the app with `npm start`.
-8. Open `http://localhost:3000`.
+* [x] Added an Express API endpoint at `/api/items` to retrieve gift items from PostgreSQL.
+* [x] Added a database reset script to create and seed the `project2_items` table.
+* [x] Updated the frontend to dynamically render cards using data fetched from the backend.
+* [x] Used environment variables to protect the PostgreSQL connection string.
 
 ## Video Walkthrough
 
-Here's a walkthrough of implemented features:
+Here's a walkthrough of implemented required features:
 
-<img src='walkthrough.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='walkthrough2.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
+GIF created with **QuickTime Player and converted to GIF**.
 
 ## Notes
 
-One challenge was ensuring the database SSL settings rejected unauthorized connections appropriately while allowing both local and cloud development environments to work seamlessly. Refactoring the hardcoded frontend array to use the fetch API with vanilla Javascript async/await flow made the page updates clean and smooth.
+One of the main challenges was refactoring the original Project 1 app so that the list item data no longer lived inside the frontend JavaScript file. I had to create a PostgreSQL table, seed the data, connect the Express backend to the database, and update the frontend to fetch data from the `/api/items` endpoint.
+
+Another challenge was making sure the database URL stayed private by using a `.env` file and adding it to `.gitignore`.
+
+## License
+
+Copyright 2026 Oscar Mochizaki
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
+
+> http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
