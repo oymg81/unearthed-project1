@@ -5,13 +5,18 @@
   "main": "server/server.js",
   "type": "module",
   "scripts": {
-    "start": "nodemon server/server.js"
+    "start": "node server/server.js",
+    "dev": "nodemon server/server.js",
+    "reset": "node server/config/reset.js"
   },
   "keywords": [],
   "author": "Oscar Mochizaki",
   "license": "ISC",
   "dependencies": {
-    "express": "^5.2.1"
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "pg": "^8.21.0"
   },
   "devDependencies": {
     "nodemon": "^3.1.14"
